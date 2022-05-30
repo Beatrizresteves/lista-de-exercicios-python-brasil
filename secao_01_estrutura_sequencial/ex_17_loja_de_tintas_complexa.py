@@ -30,3 +30,12 @@ Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, consid
 
 def calcular_latas_e_preco_de_tinta():
     """Escreva aqui em baixo a sua solução"""
+    tamanho = int(input('Informe o tamanho em metros quadrados a ser pintado'))
+    litros = tamanho / 6
+    latas = int(litros  // 18) + 1
+    valor1 = latas * 80
+    latas2 = int(litros // 3.6) + 1
+    valor2 = int(latas2 * 25
+    print(f'Você deve comprar {latas} lata(s) de tinta')
+    print(f'Você deve comprar {latas} lata(s) tinta ao custo de R$ {valor2:.2f}')
+
