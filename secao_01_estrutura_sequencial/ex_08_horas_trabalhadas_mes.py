@@ -21,5 +21,3 @@ def calcular_salario():
     horas_trabalhadas = int(input('Quantas horas você trabalhou no mês?'))
     salario = valor_por_hora * horas_trabalhadas
     print(f'Seu salário desse mês é {salario:.2f}')
-
-    calcular_salario()
