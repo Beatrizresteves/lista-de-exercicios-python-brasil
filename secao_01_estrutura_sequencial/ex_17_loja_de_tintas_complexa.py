@@ -82,10 +82,7 @@ def calcular_latas_e_preco_de_tinta():
         f' R$ {valor_apenas_com_latas_de_3_6_litros}. '
         f'Vão sobrar {desperdicio_apenas_com_latas_de_3_6_litros:.1f} litro(s) de tinta.'
     )
-    print(
-        f'Para menor custo, você pode comprar {quantidade_otima_latas_de_tinta_18_litros} lata(s) de 18 litros e'
-        f' {quantidade_otima_latas_de_tinta_3_6_litros} galão(ões) de 3.6 litros a um custo de R$ {valor_otimo}. '
-        f'Vão sobrar {desperdicio_otimo_com_latas_de_3_6_litros:.1f} litro(s) de tinta.'
+    print(f'Para menor custo, você pode comprar {quantidade_otima_latas_de_tinta_18_litros} lata(s) de 18 litros e' f' {quantidade_otima_latas_de_tinta_3_6_litros} galão(ões) de 3.6 litros a um custo de R$ {valor_otimo}. ' f'Vão sobrar {desperdicio_otimo_com_latas_de_3_6_litros:.1f} litro(s) de tinta.'
     )
 
 
