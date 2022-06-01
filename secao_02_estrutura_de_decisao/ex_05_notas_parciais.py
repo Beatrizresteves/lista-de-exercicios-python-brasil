@@ -21,11 +21,11 @@ Obs: 0 <= nota <= 10
 
 def notas_parciais(nota_1, nota_2):
     """Escreva aqui em baixo a sua solução"""
-    from math import ceil
-    media = ceil(nota_1 + nota_2 / 2)
+    import math
+    media = math.floor((nota_1 + nota_2) / 2)
     if media < 7:
-        return 'Reprovado'
-    if media < 10:
-        return 'Aprovado'   
+        return 'Reprovado' 
     if  media == 10:
-        return 'Aprovado com Distinção'   
+        return 'Aprovado com Distinção'
+    elif media >= 7:
+        return 'Aprovado'  
