@@ -20,3 +20,9 @@ Mostrar o resultado com duas casas decimais
 
 def decidir_melhor_produto(x, y, z):
     """Escreva aqui em baixo a sua solução"""
+    produto_mais_barato = x
+    if y < produto_mais_barato:
+        produto_mais_barato = y
+    if z < produto_mais_barato:
+        produto_mais_barato = z
+    print(f'Melhor produto custa R$ {produto_mais_barato:.2f}')
