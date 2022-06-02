@@ -51,5 +51,60 @@ até R$ 99999,99
 """
 
 
+from re import A
+from wsgiref.validate import validator
+
+
 def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int):
     """Escreva aqui em baixo a sua solução"""
+    salario_bruto = valor_hora * horas_trabalhadas
+    IR_ate_1500 = salario_bruto * 0.05
+    IR_ate_2500 = salario_bruto * 0.10
+    IR_acima_2500 = salario_bruto * 0.20
+    INSS = salario_bruto * 0.10
+    sindicato = salario_bruto * 0.03
+    FGTS = salario_bruto * 0.11
+    Total_de_descontos_ate_900 = INSS + sindicato 
+    Total_de_descontos_ate_1500 = INSS + sindicato + IR_ate_1500
+    Total_de_descontos_ate_2500 = INSS + sindicato + IR_ate_2500
+    Total_de_descontos_acima_2500 = INSS + sindicato + IR_acima_2500
+    Salario_liquido_ate_900 = salario_bruto - Total_de_descontos_ate_900
+    Salario_liquido_ate_1500 = salario_bruto - Total_de_descontos_ate_1500
+    Salario_liquido_ate_2500 = salario_bruto - Total_de_descontos_ate_2500
+    Salario_liquido_acima_2500 = salario_bruto - Total_de_descontos_acima_2500
+
+    if salario_bruto < 900:
+      print(f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})     : R$   {salario_bruto:.2f}')
+      print('(-) IR (0%)                        : R$     0.00')
+      print(f'(-) INSS (10%)                     : R$    {INSS:.2f}')
+      print(f'(-) Sindicato (3%)                 : R$     {sindicato:.2f}')
+      print(f'FGTS (11%)                         : R$    {FGTS:.2f}')
+      print(f'Total de descontos                 : R$    {Total_de_descontos_ate_900:.2f}')
+      print(f'Salário Liquido                    : R$   {Salario_liquido_ate_900:.2f}')
+
+    elif salario_bruto < 1500:
+      print(f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})     : R$  {salario_bruto:.2f}')
+      print(f'(-) IR (5%)                        : R$    {IR_ate_1500:.2f}')
+      print(f'(-) INSS (10%)                     : R$   {INSS:.2f}')
+      print(f'(-) Sindicato (3%)                 : R$    {sindicato:.2f}')
+      print(f'FGTS (11%)                         : R$   {FGTS:.2f}')
+      print(f'Total de descontos                 : R$   {Total_de_descontos_ate_1500:.2f}')
+      print(f'Salário Liquido                    : R$   {Salario_liquido_ate_1500:.2f}')
+
+    elif salario_bruto < 2500:
+      print(f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})    : R$  {salario_bruto:.2f}')
+      print(f'(-) IR (10%)                       : R$   {IR_ate_2500:.2f}')
+      print(f'(-) INSS (10%)                     : R$   {INSS:.2f}')
+      print(f'(-) Sindicato (3%)                 : R$    {sindicato:.2f}')
+      print(f'FGTS (11%)                         : R$   {FGTS:.2f}')
+      print(f'Total de descontos                 : R$   {Total_de_descontos_ate_2500:.2f}')
+      print(f'Salário Liquido                    : R$  {Salario_liquido_ate_2500:.2f}')
+
+    else:
+      print(f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})   : R$ {salario_bruto:.2f}')
+      print(f'(-) IR (20%)                       : R$  {IR_acima_2500:.2f}')
+      print(f'(-) INSS (10%)                     : R$  {INSS:.2f}')
+      print(f'(-) Sindicato (3%)                 : R$   {sindicato:.2f}')
+      print(f'FGTS (11%)                         : R$  {FGTS:.2f}')
+      print(f'Total de descontos                 : R$  {Total_de_descontos_acima_2500:.2f}')
+      print(f'Salário Liquido                    : R$ {Salario_liquido_acima_2500:.2f}')
