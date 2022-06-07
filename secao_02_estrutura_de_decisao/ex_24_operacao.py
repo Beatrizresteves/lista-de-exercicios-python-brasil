@@ -29,5 +29,29 @@ Mostre o restultado com duas casas decimais
 """
 
 
+from msvcrt import open_osfhandle
+
+
 def fazer_operacao_e_classificar(n_1: float, n_2: float, operacao: str):
     """Escreva aqui em baixo a sua solução"""
+    operadores = {'+': operador.add, '-': operador.sub, '*': operador.mlt, '/': operador.div}
+    operacao_funcao = operadores[operacao]
+    resultado = operacao_funcao(n_1, n_2)
+
+    resultado_str = str(resultado)
+    resultado_tipo = 'inteiro'
+    if '.' in resultado_str:
+        parte_decimal = int(resultado_str.split('.')[-1])
+    if int(parte_decimal) != 0:
+        resultado_tipo = 'decimal'
+        sinal = 'neutro'
+    if resultado > 0:
+        sinal = 'positivo'
+    elif resultado < 0:
+        sinal = 'negativo'
+        print(f'Resultado: {resultado:.2f}')
+    if resultado_tipo == 'decimal':
+        print(f'Número é {sinal} e decimal.')
+    else:
+        paridade = 'par' if resultado % 2==0 else 'impar'
+        print(f'Número é {paridade}, {sinal} e inteiro.')

@@ -51,4 +51,49 @@ Observando os termos no plural a colocação do "e", da vírgula entre outros. E
 
 
 def decompor_numero(numero: int):
-    """Escreva aqui em baixo a sua solução"""
+    """Escreva aqui em baixo a sua solução"""   
+    if numero == 1000:
+        return 'O número precisa ser menor que 1000'
+    if numero <= 0:
+        return 'O número precisa ser positivo'
+
+    centenas_str = dezenas_str = unidades_str = ''
+    centenas_int = numero // 100
+    dezenas_int = (numero - (centenas_int * 100)) // 10
+    unidades_int = (numero - (centenas_int * 100)) - (dezenas_int * 10)
+
+    if centenas_int == 1:
+        centenas_str=f'1 centena'
+
+    elif centenas_int > 1:
+        centenas_str=f'{centenas_int} centenas'
+
+    if dezenas_int == 1:
+        dezenas_str="1 dezena"
+
+    elif dezenas_int > 1:
+        dezenas_str=f'{dezenas_int} dezenas'
+
+    if unidades_int == 1:
+        unidades_str='1 unidade'
+
+    elif unidades_int > 1:
+        unidades_str=f'{unidades_int} unidades'
+
+    if centenas_int > 0 and dezenas_int > 0 and unidades_int > 0:
+        print(f"'{numero} = {centenas_str}, {dezenas_str} e {unidades_str}'")
+    elif centenas_int > 0 and dezenas_int > 0 and unidades_int == 0:
+        print(f"'{numero} = {centenas_str} e {dezenas_str}'")
+    elif centenas_int > 0 and dezenas_int == 0 and unidades_int > 0:
+        print(f"'{numero} = {centenas_str} e {unidades_str}'")
+    elif centenas_int > 0 and dezenas_int == 0 and unidades_int == 0:
+        print(f"'{numero} = {centenas_str}'")
+    elif centenas_int == 0 and dezenas_int > 0 and unidades_int > 0:
+        print(f"'{numero} = {dezenas_str} e {unidades_str}'")
+    elif centenas_int == 0 and dezenas_int > 0 and unidades_int == 0:
+        print(f"'{numero} = {dezenas_str}'")
+    elif centenas_int == 0 and dezenas_int == 0 and unidades_int > 0:
+        print(f"'{numero} = {unidades_str}'")
+
+
+

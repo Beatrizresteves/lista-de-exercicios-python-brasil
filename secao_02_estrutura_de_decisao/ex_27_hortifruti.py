@@ -59,3 +59,33 @@ Mostre o restultado com duas casas decimais
 
 def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
     """Escreva aqui em baixo a sua solução"""
+    if kilos_de_morango > 5:
+       valor_kilo_morango = 2.20
+       valor_morango = kilos_de_morango * valor_kilo_morango
+    if kilos_de_morango <= 5:
+       valor_kilo_morango = 2.50
+       valor_morango = kilos_de_morango * valor_kilo_morango
+    if kilos_de_maca > 5:
+       valor_kilo_maca = 1.50
+       valor_maca = kilos_de_maca * valor_kilo_maca
+    if kilos_de_maca <= 5:
+       valor_kilo_maca = 1.80
+       valor_maca = kilos_de_maca * valor_kilo_maca
+    
+    total = valor_maca + valor_morango
+
+    desconto_percentual = 0
+    kilos_totais = kilos_de_maca + kilos_de_morango
+    if kilos_totais >8 or total >25:
+        desconto_percentual = 0.1
+
+    desconto_total = total*desconto_percentual
+    total_com_desconto = total - desconto_total
+    if kilos_de_morango > 0:
+        print(f'(+)  Morango  - valor:  R$ {valor_morango:5.2f} - quantidade:  {kilos_de_morango} kg - preço: R$ {valor_kilo_morango:.2f}/kg')
+
+    if kilos_de_maca > 0:
+        print(f'(+)  Maça     - valor:  R$ {valor_maca:5.2f} - quantidade:  {kilos_de_maca} kg - preço: R$ {valor_kilo_maca:.2f}/kg')
+
+    print(f'(-)  Desconto - valor:  R$ {desconto_total:5.2f}')
+    print(f'          Valor Total:  R$ {total_com_desconto:5.2f}')
