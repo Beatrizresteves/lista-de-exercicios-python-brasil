@@ -40,3 +40,4 @@ Faça um programa que leia e valide as seguintes informações:
 
 def cadastrar_usuario(nome: str, idade: int, salario: float, sexo: str, estado_civil: str):
     """Escreva aqui em baixo a sua solução"""
+    
