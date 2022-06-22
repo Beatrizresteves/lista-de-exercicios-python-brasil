@@ -38,3 +38,5 @@ Mostre os valores monetórios com duas casas decimais..
 
 def calcular_estatisticas_colecao_de_cd():
     """Escreva aqui em baixo a sua solução"""
+    qtd_cds: int(input('Informe a quantidade de cds:'))
+    
