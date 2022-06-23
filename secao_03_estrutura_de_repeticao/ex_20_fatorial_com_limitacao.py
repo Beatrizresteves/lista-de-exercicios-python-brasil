@@ -37,5 +37,8 @@ def calcular_fatorial(n: int) -> int:
     if not (0 < n <= 16) or isinstance(n, float):
         return f'Apenas valores positivos, inteiros e menores que 16 são válidos. Não é possível calcular para {n}'
     else:
-        f = factorial(n)
-        print(f)
+        fatorial = 1
+        for n in range(2, n + 1):
+            fatorial *= n
+        print(fatorial)
+
