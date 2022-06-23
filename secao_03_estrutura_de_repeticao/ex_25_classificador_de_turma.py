@@ -35,3 +35,5 @@ def classifcar_turma(*idades) -> str:
     if media >= 60:
         turma ='idosa'
     return f'A turma é {turma}, pois a média é de {media:.1f} anos'
+
+    

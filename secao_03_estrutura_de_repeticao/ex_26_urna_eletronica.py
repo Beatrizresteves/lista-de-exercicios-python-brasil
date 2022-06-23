@@ -44,33 +44,16 @@ def calcular_votos(*votos):
     votos_rouba_mas_faz = 0
     votantes = len(votos)
     print(f'Votantes: {votantes}')
-    for politico in votos:
-        for voto in politico:
-            if politico == 'corrupoto':
-                votos_corrupto += 1
-            if voto == 'mentiroso':
-                votos_mentiroso = votos_mentiroso +1
-            if votos == 'rouba, mas faz':
-                votos_rouba_mas_faz = votos_rouba_mas_faz +1
-    print(f'Votos no candidato corrupto: {votos_corrupto}')
-    print(f'Votos no candidato mentiroso: {votos_mentiroso}')
-    print(f'Votos no candidato rouba, mas faz: {votos_rouba_mas_faz}')
-
-    '''votos_corrupto = 0
-    votos_mentiroso = 0
-    votos_rouba_mas_faz = 0
-    votantes = len(votos)
-    print(f'Votantes: {votantes}')
-    for i in range(votantes):
+    for voto in votos:
         votos = (votos)
-        if i in 'corrupoto' in votos:
+        if voto == 'corrupto':
             votos_corrupto += 1
-        if votos == 'mentiroso':
+        if voto == 'mentiroso':
             votos_mentiroso = votos_mentiroso +1
-        if votos == 'rouba, mas faz':
+        if voto == 'rouba, mas faz':
             votos_rouba_mas_faz = votos_rouba_mas_faz +1
     print(f'Votos no candidato corrupto: {votos_corrupto}')
     print(f'Votos no candidato mentiroso: {votos_mentiroso}')
-    print(f'Votos no candidato rouba, mas faz: {votos_rouba_mas_faz}')'''
+    print(f'Votos no candidato rouba, mas faz: {votos_rouba_mas_faz}')
 
     
