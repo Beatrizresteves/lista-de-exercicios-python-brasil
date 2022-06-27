@@ -56,3 +56,52 @@ da média das alturas e dos pesos dos clientes
 
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
+    cliente_mais_gordo = 0
+    cliente_mais_magro = 0
+    cliente_mais_alto = 0
+    cliente_mais_baixo = 0
+    peso_mais_gordo = 0
+    peso_mais_magro = 1000
+    altura_mais_alto = 0
+    altura_mais_baixo = 500
+    soma_dos_pesos = 0
+    soma_das_alturas = 0
+    quantidade_de_clientes = 0
+
+    while True:
+        cliente = input('Digite o nome do cliente:')
+        if cliente == "0":
+            break
+        quantidade_de_clientes += 1
+        altura = int(input('Digite a altura do cliente (em centímetros): '))
+        peso = float(input('Digite o peso do cliente (em kg): '))
+
+        soma_dos_pesos += peso
+        soma_das_alturas += altura
+
+        if altura > altura_mais_alto:
+            altura_mais_alto = altura
+            cliente_mais_alto = cliente
+
+        if altura < altura_mais_baixo:
+            altura_mais_baixo = altura
+            cliente_mais_baixo = cliente
+
+        if peso > peso_mais_gordo:
+            peso_mais_gordo = peso
+            cliente_mais_gordo = cliente
+
+        if peso < peso_mais_magro:
+            peso_mais_magro = peso
+            cliente_mais_magro = cliente
+
+    media_das_alturas = soma_das_alturas / quantidade_de_clientes
+    media_dos_pesos = soma_dos_pesos / quantidade_de_clientes
+
+    print(f'Cliente mais alto: {cliente_mais_alto}, com {altura_mais_alto} centímetros')
+    print(f'Cliente mais baixo: {cliente_mais_baixo}, com {altura_mais_baixo} centímetros')
+    print(f'Cliente mais magro: {cliente_mais_magro}, com {peso_mais_magro:.0f} kilos')
+    print(f'Cliente mais gordo: {cliente_mais_gordo}, com {peso_mais_gordo:.0f} kilos')
+    print(f'--------------------------------------------------')
+    print(f'Media de altura dos clientes: {media_das_alturas:.1f} centímetros')
+    print(f'Media de peso dos clientes: {media_dos_pesos:.1f} kilos')

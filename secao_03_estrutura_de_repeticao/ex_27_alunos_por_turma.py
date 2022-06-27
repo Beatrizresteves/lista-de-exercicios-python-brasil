@@ -36,16 +36,18 @@ Arredonde o valor da média para baixo.
 
 def calcular_media_de_alunos_por_turma():
     """Escreva aqui em baixo a sua solução"""
-    qtd_turmas = int(input("Informe a quantidade de turmas: "))
-    media = 0
-    soma = 0
-    for turma in range(qtd_turmas):
-        alunos = int(input(f"Digite quantos alunos tem na turma: "))
-        while alunos > 40 or alunos <= 0:
-            print(f'Uma turma deve ter de 1 a 40 alunos, não é possível ter {alunos} alunos')
-    soma += alunos
-    qtd_turmas += turma
-    media = soma / qtd_turmas
-    print(qtd_turmas -1) 
-    print(soma)
-    print(f"A media de alunos por turma é {media}")
+    from statistics import mean
+    qtd_de_turmas = int(input('Informe o número de turmas: '))
+    turmas = []
+    print(f'Número de turmas: {qtd_de_turmas}')
+    while len(turmas) < qtd_de_turmas:
+        turma_atual = len(turmas) + 1
+        qtd_de_alunos_turma_atual = int(input(f'Digite quantos alunos estão na turma {turma_atual}: '))
+        if not (1 <= qtd_de_alunos_turma_atual <= 40):
+            print(f'Uma turma deve ter de 1 a 40 alunos, não é possível ter {qtd_de_alunos_turma_atual} alunos')
+        else:
+            turmas.append(qtd_de_alunos_turma_atual)
+
+    media_alunos_por_turma = int(mean(turmas))
+
+    print(f'Média de alunos por turma: {media_alunos_por_turma}')

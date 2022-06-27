@@ -32,3 +32,10 @@ Quantidade de Parcelas  % de Juros sobre o valor inicial da dívida
 
 def gerar_dados_de_financiamente(valor_inicial: float):
     """Escreva aqui em baixo a sua solução"""
+    print('Valor da Dívida Valor dos Juros Quantidade de Parcelas  Valor da Parcela')
+    juros_e_parcelas = [(0.0 ,1), ( 0.10,3), (0.15,6), (0.20,9), (0.25, 12)]
+    for valor_juros, qtd_parcelas in juros_e_parcelas:
+        valor_dos_juros = valor_inicial * valor_juros 
+        valor_da_divida = valor_inicial + valor_dos_juros
+        valor_da_parcela = valor_da_divida / qtd_parcelas
+        print(f'R$ {valor_da_divida:6.2f}      {valor_juros:<15.0%} {qtd_parcelas:<5}                   R$ {valor_da_parcela:9.2f}')

@@ -49,3 +49,26 @@ Gabarito da Prova:
 
 def corrigir(*provas):
     """Escreva aqui em baixo a sua solução"""
+    from itertools import islice
+    from statistics import mean
+    gabarito = ('A', 'B', 'C', 'D', 'E', 'E', 'D', 'C', 'B', 'A')
+
+    def corrigir_prova(prova):
+        aluno = prova[0]
+        nota = sum(1 for resposta_certa, reposta in zip(gabarito, islice(prova, 1, None)) if reposta == resposta_certa)
+        return aluno, nota
+
+    correcoes = dict(map(corrigir_prova, provas))
+
+    maior_nota = max(correcoes.values())
+    menor_nota = min(correcoes.values())
+    media_geral = mean(correcoes.values())
+    total_de_alunos = len(provas)
+    print(f'Aluno                 Nota')
+    for aluno, nota in correcoes.items():
+        print(f'{aluno:21s} {nota:2d}')
+    print(f'---------------------------')
+    print(f'Média geral: {media_geral:.1f}')
+    print(f'Maior nota: {maior_nota}')
+    print(f'Menor nota: {menor_nota}')
+    print(f'Total de Alunos: {total_de_alunos}')
